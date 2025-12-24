@@ -21,3 +21,5 @@ Contributions welcome — open an issue or a pull request.
 ## License
 
 MIT — see `LICENSE` for details.
+
+### PS: Dont mind some directories or files be mentioning Wurst Client.  it was because the original maybe COPYRIGHTED project was to port Wurst Client to neoforge. but i decided to create my own hack client with VS CODE!
