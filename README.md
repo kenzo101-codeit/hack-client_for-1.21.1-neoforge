@@ -20,7 +20,7 @@ A Wurst-like hack client for Minecraft 1.21.1 with a NeoForge target.
 
 ## Contributing
 
-Contributions welcome — open an issue or a pull request.
+Contributions welcome — please see `CONTRIBUTING.md` for contribution guidelines. If you prefer direct contact, email **kenzo101studios@gmail.com**.
 
 ## License
 
