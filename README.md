@@ -1,3 +1,4 @@
+[![CI](https://github.com/kenzo101-codeit/hack-client_for-1.21.1-neoforge/actions/workflows/ci.yml/badge.svg)](https://github.com/kenzo101-codeit/hack-client_for-1.21.1-neoforge/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
 
 
