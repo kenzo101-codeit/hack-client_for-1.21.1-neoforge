@@ -17,9 +17,13 @@ public final class ESP {
 
     public static boolean shouldGlow(Entity entity) {
         if (!enabled) return false;
-        if (entity instanceof Player) return true;
-        if (entity instanceof Monster) return true;
-        if (entity instanceof Animal) return true;
-        return false;
+
+        // DEBUG: Prevent the player from glowing themselves
+        if (entity == Minecraft.getInstance().player) return false;
+
+        // Glow if it's a Player, Monster, or Animal
+        return entity instanceof Player ||
+                entity instanceof Monster ||
+                entity instanceof Animal;
     }
 }

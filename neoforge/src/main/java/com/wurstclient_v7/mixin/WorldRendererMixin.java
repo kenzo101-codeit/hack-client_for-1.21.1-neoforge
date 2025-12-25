@@ -11,8 +11,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LevelRenderer.class)
 public class WorldRendererMixin {
-    @Inject(method = "renderLevel", at = @At("TAIL"))
-    private void onRenderLevel(PoseStack poseStack, float partialTicks, long finishTimeNanos, boolean renderBlockOutline, net.minecraft.client.Camera camera, net.minecraft.client.renderer.GameRenderer gameRenderer, net.minecraft.client.renderer.LightTexture lightTexture, Matrix4f projectionMatrix, CallbackInfo ci) {
-        Tracers.onRender(poseStack, partialTicks);
+    @Inject(method = "renderLevel", at = @At("HEAD"))
+    private void onRenderLevel(
+            net.minecraft.client.DeltaTracker deltaTracker,
+            boolean renderBlockOutline,
+            net.minecraft.client.Camera camera,
+            net.minecraft.client.renderer.GameRenderer gameRenderer,
+            net.minecraft.client.renderer.LightTexture lightTexture,
+            org.joml.Matrix4f frustumMatrix,
+            org.joml.Matrix4f projectionMatrix,
+            org.spongepowered.asm.mixin.injection.callback.CallbackInfo ci
+    ) {
+        float partialTicks = deltaTracker.getGameTimeDeltaPartialTick(true);
+
+        Tracers.render(frustumMatrix, partialTicks);
     }
 }
