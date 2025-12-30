@@ -12,12 +12,9 @@ import org.joml.Matrix4f;
 public final class Tracers {
     private static volatile boolean enabled = false;
 
-    private Tracers() {
-    }
+    private Tracers() {}
 
-    public static boolean isEnabled() {
-        return enabled;
-    }
+    public static boolean isEnabled() { return enabled; }
 
     public static void toggle() {
         enabled = !enabled;
@@ -29,31 +26,42 @@ public final class Tracers {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
 
+        // Setup rendering state for 1.21.1
         RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
         RenderSystem.disableDepthTest();
         RenderSystem.setShader(GameRenderer::getPositionColorShader);
 
         Tesselator tesselator = Tesselator.getInstance();
-        // 1.21.1 uses this new build process
+        // In 1.21.1, begin() returns the BufferBuilder
         BufferBuilder buffer = tesselator.begin(VertexFormat.Mode.DEBUG_LINES, DefaultVertexFormat.POSITION_COLOR);
 
         Vec3 cameraPos = mc.gameRenderer.getMainCamera().getPosition();
+        // Calculate start point (relative to camera)
         Vec3 start = mc.player.getEyePosition(partialTicks).subtract(cameraPos);
 
         for (Entity entity : mc.level.entitiesForRendering()) {
             if (entity == mc.player || !(entity instanceof Player)) continue;
 
-            Vec3 pos = entity.getPosition(partialTicks).add(0, entity.getBbHeight() / 2, 0).subtract(cameraPos);
+            // Get target position relative to camera
+            Vec3 pos = entity.getPosition(partialTicks)
+                    .add(0, entity.getBbHeight() / 2, 0)
+                    .subtract(cameraPos);
 
-            // 1.21.1 syntax: addVertex(matrix, x, y, z)
-            buffer.addVertex(matrix, (float) start.x, (float) start.y, (float) start.z).setColor(0f, 1f, 0f, 1f);
-            buffer.addVertex(matrix, (float) pos.x, (float) pos.y, (float) pos.z).setColor(0f, 1f, 0f, 1f);
+            // Add vertices (Start -> End)
+            buffer.addVertex(matrix, (float) start.x, (float) start.y, (float) start.z)
+                    .setColor(0.0f, 1.0f, 0.0f, 1.0f); // Green
+
+            buffer.addVertex(matrix, (float) pos.x, (float) pos.y, (float) pos.z)
+                    .setColor(0.0f, 1.0f, 0.0f, 1.0f);
         }
 
         MeshData meshData = buffer.build();
         if (meshData != null) {
             BufferUploader.drawWithShader(meshData);
         }
+
         RenderSystem.enableDepthTest();
+        RenderSystem.disableBlend();
     }
 }
