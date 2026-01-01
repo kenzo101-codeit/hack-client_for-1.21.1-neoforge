@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -7,12 +8,15 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public class GodMode {
-    private static boolean enabled = false;
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("godmode.enabled", false);
     private static String targetPlayer = ""; // Empty = Self
 
     public static boolean isEnabled() { return enabled; }
 
-    public static void toggle() { enabled = !enabled; }
+    public static void toggle() {
+        enabled = !enabled;
+        NeoForgeConfigManager.setBoolean("jetpack.enabled", enabled);
+    }
 
     public static void setTarget(String name) { targetPlayer = name; }
 

@@ -1,13 +1,13 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
 public final class KillAura {
-    private static boolean enabled = ConfigManager.getBoolean("killaura.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("killaura.enabled", false);
     private static double range = 4.5; // Standard reach distance
     private static int delayTicks = 10; // Simple attack speed (0.5 seconds)
     private static int timer = 0;
@@ -18,7 +18,7 @@ public final class KillAura {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("killaura.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("killaura.enabled", enabled);
     }
 
     public static void onClientTick() {

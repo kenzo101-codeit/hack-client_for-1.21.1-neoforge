@@ -16,6 +16,7 @@ public final class NeoForgeConfigManager {
     static {
         // Set your defaults here
         PROPS.setProperty("speed.multiplier", "1.5");
+        PROPS.setProperty("speed.enabled", "false");
         PROPS.setProperty("spider.enabled", "false");
         PROPS.setProperty("tracers.enabled", "false");
         PROPS.setProperty("safewalk.enabled", "false");

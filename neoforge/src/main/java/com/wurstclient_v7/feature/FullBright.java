@@ -1,12 +1,12 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
 public final class FullBright {
-    private static boolean enabled = ConfigManager.getBoolean("fullbright.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("fullbright.enabled", false);
 
     private FullBright() { }
 
@@ -14,7 +14,7 @@ public final class FullBright {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("fullbright.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("fullbright.enabled", enabled);
 
         // If we just disabled it, remove the effect immediately
         if (!enabled) {

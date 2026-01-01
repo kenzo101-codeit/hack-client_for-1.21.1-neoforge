@@ -1,11 +1,11 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
 
 public final class Jetpack {
-    private static boolean enabled = ConfigManager.getBoolean("jetpack.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("jetpack.enabled", false);
 
     private Jetpack() { }
 
@@ -13,7 +13,7 @@ public final class Jetpack {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("jetpack.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("jetpack.enabled", enabled);
     }
 
     public static void onClientTick() {

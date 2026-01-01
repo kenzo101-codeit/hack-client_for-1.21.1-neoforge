@@ -15,10 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LevelRenderer.class)
 public class WorldRendererMixin {
 
-    @Inject(
-            method = "renderLevel",
-            at = @At("TAIL")
-    )
+    @Inject(method = "renderLevel", at = @At("TAIL"))
     private void onRenderLevel(
             DeltaTracker deltaTracker,
             boolean renderBlockOutline,

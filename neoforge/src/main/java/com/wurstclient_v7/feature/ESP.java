@@ -1,6 +1,6 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Animal;
@@ -8,7 +8,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 
 public final class ESP {
-    private static boolean enabled = ConfigManager.getBoolean("esp.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("esp.enabled", false);
 
     private ESP() { }
 
@@ -16,7 +16,7 @@ public final class ESP {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("esp.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("esp.enabled", enabled);
     }
 
     public static boolean shouldGlow(Entity entity) {

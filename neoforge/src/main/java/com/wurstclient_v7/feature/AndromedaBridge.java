@@ -1,6 +1,7 @@
 package com.wurstclient_v7.feature;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -11,7 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
 public final class AndromedaBridge {
-    private static boolean enabled = false;
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("andromeda.enabled", false);
     private static float startYaw;
     private static float startPitch;
 
@@ -19,6 +20,8 @@ public final class AndromedaBridge {
 
     public static void toggle() {
         enabled = !enabled;
+        NeoForgeConfigManager.setBoolean("andromeda.enabled", enabled);
+
         Minecraft mc = Minecraft.getInstance();
         if (enabled && mc.player != null) {
             // Lock the angles when we start

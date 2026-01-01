@@ -1,6 +1,6 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class Nuker {
-    private static boolean enabled = ConfigManager.getBoolean("nuker.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("nuker.enabled", false);
     private static int range = 4;
 
     private Nuker() { }
@@ -18,7 +18,7 @@ public final class Nuker {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("nuker.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("nuker.enabled", enabled);
     }
 
     public static void onClientTick() {

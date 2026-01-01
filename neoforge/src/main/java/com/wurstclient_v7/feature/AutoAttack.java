@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
@@ -9,7 +10,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
 public final class AutoAttack {
-    private static volatile boolean enabled = false;
+    private static volatile boolean enabled = NeoForgeConfigManager.getBoolean("autoattack.enabled", false);
     private static int range = 6;
     private static long lastTick = 0;
     private static int delayTicks = 2;

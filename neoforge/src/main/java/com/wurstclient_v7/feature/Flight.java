@@ -1,10 +1,10 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 
 public final class Flight {
-    private static boolean enabled = ConfigManager.getBoolean("flight.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("flight.enabled", false);
 
     private Flight() { }
 
@@ -12,7 +12,7 @@ public final class Flight {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("flight.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("flight.enabled", enabled);
 
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;

@@ -1,11 +1,11 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.ConfigManager;
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 
 public final class NoFall {
-    private static boolean enabled = ConfigManager.getBoolean("nofall.enabled", false);
+    private static boolean enabled = NeoForgeConfigManager.getBoolean("nofall.enabled", false);
 
     private NoFall() { }
 
@@ -13,7 +13,7 @@ public final class NoFall {
 
     public static void toggle() {
         enabled = !enabled;
-        ConfigManager.setBoolean("nofall.enabled", enabled);
+        NeoForgeConfigManager.setBoolean("nofall.enabled", enabled);
     }
 
     public static void onClientTick() {
