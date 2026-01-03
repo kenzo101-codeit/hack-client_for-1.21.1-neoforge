@@ -3,8 +3,6 @@ plugins {
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'com.gradleup.shadow' version '8.3.6' apply false
     id 'java'
-    id 'net.neoforged.gradle.userdev' version '7.+'
-    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 java {
