@@ -11,7 +11,7 @@ A Wurst-like hack client for Minecraft 1.21.1 with a NeoForge target.
 - Build AND Locate .JAR files for NeoForge:
   - `chmod +x ./scripts/build-jars.sh && ./scripts/build-jars.sh`
 - Run NeoForge client for development:
-  - ./gradlew :neoforge:runClient --debug
+  - `./gradlew :neoforge:runClient --debug`
 
 ## Development / Quick-start
 
@@ -29,6 +29,10 @@ If you want to contribute or run the project locally, see `CONTRIBUTING.md` for 
 ## Contributing
 
 Contributions welcome — please see `CONTRIBUTING.md` for contribution guidelines. If you prefer direct contact, email **kenzo101studios@gmail.com**.
+
+### OTHER PROJECT!
+Check out my ElytraMace Project as well!
+## https://github.com/kenzo101-codeit/ElytraMace-MOD-ORIGINAL_IDEA_BY_johsar_ON_MODRINTH-/
 
 ## License
 
