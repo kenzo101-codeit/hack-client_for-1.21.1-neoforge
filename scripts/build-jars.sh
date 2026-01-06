@@ -27,7 +27,7 @@ echo
 echo "=============================="
 echo " NeoForge JAR built!"
 echo "=============================="
-echo " Output: dist/HackClient-1.21.1.jar"
+echo " Output: dist/$(ls dist/)"
 echo
 
-ls -lh dist/
+
