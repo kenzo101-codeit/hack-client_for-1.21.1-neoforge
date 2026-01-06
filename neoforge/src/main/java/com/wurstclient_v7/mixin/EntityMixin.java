@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class EntityMixin {
 
     // Fix 1: Targeting the exact method for SafeWalk
-    @Inject(method = "isSteppingCarefully", at = @At("HEAD"), cancellable = true, remap = true)
+    @Inject(method = "isSteppingCarefully()Z", at = @At("HEAD"), cancellable = true, remap = true)
     private void onIsSteppingCarefully(CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player && SafeWalk.isEnabled()) {
             cir.setReturnValue(true);

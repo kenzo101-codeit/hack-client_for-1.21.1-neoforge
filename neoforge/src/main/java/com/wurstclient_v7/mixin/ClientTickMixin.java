@@ -31,7 +31,7 @@ public class ClientTickMixin {
     private static boolean prevGodModePressed = false;
     private static final boolean DEBUG_KEYS = false;
 
-    @Inject(method = "tick", at = @At("TAIL"))
+    @Inject(method = "tick()v", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
         Minecraft mc = Minecraft.getInstance();
         if (mc == null) return;
