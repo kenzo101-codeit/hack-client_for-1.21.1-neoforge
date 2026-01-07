@@ -47,37 +47,14 @@ public class ModuleScreen extends Screen {
         gfx.drawString(this.font, shMultText, x + 120 - 8 - this.font.width(shMultText), lineY, -3355444, false);
         String shBinding = (this.listeningAction != null && this.listeningAction.equals("speedhack_toggle")) ? "Press any key..." : KeybindManager.getLabel("speedhack_toggle");
         gfx.drawString(this.font, shBinding, x + 120 - 8 - this.font.width(shBinding), lineY, -86, false);
-        lineY += 12;
-        renderModule(gfx, x, lineY, "fullbright", FullBright.isEnabled(), "fullbright_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "flight", Flight.isEnabled(), "flight_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "nofall", NoFall.isEnabled(), "nofall_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "xray", XRay.isEnabled(), "xray_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "jetpack", Jetpack.isEnabled(), "jetpack_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "nuker", Nuker.isEnabled(), "nuker_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "spider", Spider.isEnabled(), "spider_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "esp", ESP.isEnabled(), "esp_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "tracers", Tracers.isEnabled(), "tracers_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "andromeda", AndromedaBridge.isEnabled(), "andromeda_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "safewalk", com.wurstclient_v7.feature.SafeWalk.isEnabled(), "safewalk_toggle");
-        lineY += 12;
-        // Now render GodMode on the next line
-        renderModule(gfx, x, lineY, "godmode (" + GodMode.getTarget() + ")", GodMode.isEnabled(), "godmode_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "freecam", Freecam.isEnabled(), "freecam_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "lsd", LSD.isEnabled(), "lsd_toggle");
-        lineY += 12;
-        renderModule(gfx, x, lineY, "jesus", Jesus.isEnabled(), "jesus_toggle");
+        int lineY = y + 8 + 16;
+
+        for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
+            String modName = entry.getKey();
+            boolean enabled = entry.getValue().isEnabled();
+            renderModule(gfx, x, lineY, modName.toLowerCase(), enabled, modName.toLowerCase() + "_toggle");
+            lineY += 12;
+        }
 
         super.render(gfx, mouseX, mouseY, partialTick);
     }

@@ -6,7 +6,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
-EventBusSubscriber
+@EventBusSubscriber
 public final class Glide {
 
 	private static boolean enabled = false;

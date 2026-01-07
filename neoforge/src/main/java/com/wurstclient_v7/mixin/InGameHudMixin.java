@@ -25,42 +25,74 @@ public class InGameHudMixin {
         guiGraphics.drawString(mc.font, "My Hack Client For 1.21.1 NeoForge v1.0", x, y, 0xFFFFFFFF, true);
         y += 12;
 
+        // Input HUD
+        long window = mc.getWindow().getWindow();
+        int pressedColor = 0x59FF0000; // translucent red
+        int idleColor = 0x59808080;    // translucent gray
+
+        int baseX = 10;
+        int baseY = 80;
+        int boxW = 40;
+        int boxH = 20;
+        int spacing = 5;
+
+// W on top
+        drawKeyBox(guiGraphics, mc.font, window, "W", GLFW.GLFW_KEY_W,
+                baseX + boxW + spacing, baseY, false, pressedColor, idleColor);
+
+// A S D row
+        drawKeyBox(guiGraphics, mc.font, window, "A", GLFW.GLFW_KEY_A,
+                baseX, baseY + boxH + spacing, false, pressedColor, idleColor);
+
+        drawKeyBox(guiGraphics, mc.font, window, "S", GLFW.GLFW_KEY_S,
+                baseX + boxW + spacing, baseY + boxH + spacing, false, pressedColor, idleColor);
+
+        drawKeyBox(guiGraphics, mc.font, window, "D", GLFW.GLFW_KEY_D,
+                baseX + (boxW + spacing) * 2, baseY + boxH + spacing, false, pressedColor, idleColor);
+
+// SPACE below
+        drawKeyBox(guiGraphics, mc.font, window, "SPACE", GLFW.GLFW_KEY_SPACE,
+                baseX, baseY + (boxH + spacing) * 2, false, pressedColor, idleColor);
+
+        //MOUSE BUTTONS
+        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_L", GLFW.GLFW_MOUSE_BUTTON_LEFT,
+                baseX + (boxW + spacing) * 3, baseY, true, pressedColor, idleColor);
+
+        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_R", GLFW.GLFW_MOUSE_BUTTON_RIGHT,
+                baseX + (boxW + spacing) * 3, baseY + boxH + spacing, true, pressedColor, idleColor);
+
         String[] modules = {
                 "AndromedaBridge", "AutoAttack", "ESP", "Flight",
                 "FullBright", "Jetpack", "KillAura",
-                "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus"
+                "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus", "AirPlace", "BoatFly"
         };
 
-        for (String mod : modules) {
-            if (isModEnabled(mod)) {
-                guiGraphics.drawString(mc.font, "[+] " + mod, x, y, color, true);
-                y += 10;
-            }
+for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
+        if (entry.getValue().isEnabled()) {
+            guiGraphics.drawString(mc.font, "[+] " + entry.getKey(), x, y, color, true);
+            y += 10;
         }
     }
 
-    private boolean isModEnabled(String name) {
-        return switch (name) {
-            case "AndromedaBridge" -> com.wurstclient_v7.feature.AndromedaBridge.isEnabled();
-            case "AutoAttack" -> com.wurstclient_v7.feature.AutoAttack.isEnabled();
-            case "ESP" -> com.wurstclient_v7.feature.ESP.isEnabled();
-            case "Flight" -> com.wurstclient_v7.feature.Flight.isEnabled();
-            case "FullBright" -> com.wurstclient_v7.feature.FullBright.isEnabled();
-            case "Jetpack" -> com.wurstclient_v7.feature.Jetpack.isEnabled();
-            case "KillAura" -> com.wurstclient_v7.feature.KillAura.isEnabled();
-            case "NoFall" -> com.wurstclient_v7.feature.NoFall.isEnabled();
-            case "Nuker" -> com.wurstclient_v7.feature.Nuker.isEnabled();
-            case "SpeedHack" -> com.wurstclient_v7.feature.SpeedHack.isEnabled();
-            case "Spider" -> com.wurstclient_v7.feature.Spider.isEnabled();
-            case "Tracers" -> com.wurstclient_v7.feature.Tracers.isEnabled();
-            case "XRay" -> com.wurstclient_v7.feature.XRay.isEnabled();
-            case "SafeWalk" -> com.wurstclient_v7.feature.SafeWalk.isEnabled();
-            case "GodMode" -> com.wurstclient_v7.feature.GodMode.isEnabled();
-            case "Glide" -> com.wurstclient_v7.feature.Glide.isEnabled();
-            case "Freecam" -> com.wurstclient_v7.feature.Freecam.isEnabled();
-            case "LSD" -> com.wurstclient_v7.feature.LSD.isEnabled();
-            case "Jesus" -> com.wurstclient_v7.feature.Jesus.isEnabled();
-            default -> false;
-        };
+    private void drawKeyBox(GuiGraphics guiGraphics, Font font, long window,
+                            String label, int key, int x, int y, boolean isMouse,
+                            int pressedColor, int idleColor) {
+        boolean pressed;
+        if (isMouse) {
+            pressed = GLFW.glfwGetMouseButton(window, key) == GLFW.GLFW_PRESS;
+        } else {
+            pressed = GLFW.glfwGetKey(window, key) == GLFW.GLFW_PRESS;
+        }
+
+        int boxColor = pressed ? pressedColor : idleColor;
+
+        // Draw rectangle (width=40, height=20 for example)
+        guiGraphics.fill(x, y, x + 40, y + 20, boxColor);
+
+        // Draw label centered inside
+        int textWidth = font.width(label);
+        int textX = x + (40 - textWidth) / 2;
+        int textY = y + (20 - font.lineHeight) / 2;
+        guiGraphics.drawString(font, label, textX, textY, 0xFFFFFFFF, true);
     }
 }

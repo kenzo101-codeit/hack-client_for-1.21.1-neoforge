@@ -14,28 +14,30 @@ public final class NeoForgeConfigManager {
     private static final Properties PROPS = new Properties();
 
     static {
-        // Set your defaults here
-        PROPS.setProperty("speed.multiplier", "1.5");
-        PROPS.setProperty("speed.enabled", "false");
-        PROPS.setProperty("spider.enabled", "false");
-        PROPS.setProperty("tracers.enabled", "false");
-        PROPS.setProperty("safewalk.enabled", "false");
+        PROPS.setProperty("airplace.enabled", "false");
+        PROPS.setProperty("andromeda.enabled", "false");
+        PROPS.setProperty("autoattack.enabled", "false");
+        PROPS.setProperty("boatfly.enabled", "false");
         PROPS.setProperty("esp.enabled", "false");
         PROPS.setProperty("flight.enabled", "false");
-        PROPS.setProperty("fullbright.enabled", "false");
-        PROPS.setProperty("killaura.enabled", "false");
-        PROPS.setProperty("jetpack.enabled", "false");
-        PROPS.setProperty("nuker.enabled", "false");
-        PROPS.setProperty("nofall.enabled", "false");
-        PROPS.setProperty("andromeda.enabled", "false");
-        PROPS.setProperty("xray.enabled", "false");
-        PROPS.setProperty("autoattack.enabled", "false");
-        PROPS.setProperty("godmode.enabled", "false");
-        PROPS.setProperty("glide.enabled", "false");
         PROPS.setProperty("freecam.enabled", "false");
-        PROPS.setProperty("lsd.enabled", "false");
+        PROPS.setProperty("fullbright.enabled", "false");
+        PROPS.setProperty("glide.enabled", "false");
+        PROPS.setProperty("godmode.enabled", "false");
+        PROPS.setProperty("healthtags.enabled", "false");
         PROPS.setProperty("jesus.enabled", "false");
-        load();
+        PROPS.setProperty("jetpack.enabled", "false");
+        PROPS.setProperty("killaura.enabled", "false");
+        PROPS.setProperty("lsd.enabled", "false");
+        PROPS.setProperty("nofall.enabled", "false");
+        PROPS.setProperty("nuker.enabled", "false");
+        PROPS.setProperty("safewalk.enabled", "false");
+        PROPS.setProperty("speed.enabled", "false");
+        PROPS.setProperty("spider.enabled", "false");
+        PROPS.setProperty("xray.enabled", "false");
+        PROPS.setProperty("tracers.enabled", "false");
+
+        PROPS.setProperty("speed.multiplier", "1.5"); load();
     }
 
     private NeoForgeConfigManager() { }
