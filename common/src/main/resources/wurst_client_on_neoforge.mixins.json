@@ -4,15 +4,14 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "refmap": "neoforge.refmap.json",
-  "client": [
-  ],
+  "client": [],
   "mixins": [
     "ClientTickMixin",
     "EntityMixin",
     "InGameHudMixin",
     "SafeWalkMixin",
-    "XRayMixin",
-    "EntityRendererMixin"
+    "WorldRendererMixin",
+    "XRayMixin"
   ],
   "injectors": {
     "defaultRequire": 1
