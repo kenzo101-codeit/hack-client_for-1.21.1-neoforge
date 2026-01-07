@@ -1,40 +1,48 @@
-package com.wurstclient_v7;
+package com.wurstclient_v7.mixin;
 
-import com.wurstclient_v7.config.NeoForgeConfigManager;
-import com.wurstclient_v7.client.HealthTagClientCache;
-import com.wurstclient_v7.net.HealthTagsPayloads;
-import com.wurstclient_v7.server.HealthTagsBroadcaster;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.LivingEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mod(HealthTagsMain.MODID)
-public final class HealthTagsMain {
-	public static final String MODID = "wurst_client_on_neoforge";
+@Mixin(LivingEntityRenderer.class)
+public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> {
 
-	// Toggle state for the Click GUI
-	private static boolean enabled = false;
+	// Try this signature - it's more likely to work in 1.21.1
+	@Inject(
+			method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
+			at = @At("TAIL")
+	)
+	private void onRender(T entity, float yaw, float partialTicks, PoseStack poseStack,
+	                      MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+		if (!com.wurstclient_v7.HealthTagsMain.isEnabled()) return;
 
-	public HealthTagsMain(IEventBus modEventBus) {
-		// Register networking
-		modEventBus.addListener(this::registerNetworking);
+		float health = entity.getHealth();
+		float max = entity.getMaxHealth();
+		String text = String.format("%.1f / %.1f", health, max);
 
-		// Register server broadcaster
-		HealthTagsBroadcaster.init();
-	}
+		poseStack.pushPose();
+		poseStack.translate(0.0, entity.getBbHeight() + 0.5, 0.0);
+		poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
+		poseStack.scale(-0.025f, -0.025f, 0.025f);
 
-	private void registerNetworking(RegisterPayloadHandlersEvent event) {
-		HealthTagsPayloads.register(event, HealthTagClientCache.CLIENT_HANDLER);
-	}
+		Font font = Minecraft.getInstance().font;
+		int width = font.width(text);
 
-	// === Public API for Click GUI ===
-	public static void toggle() {
-		enabled = !enabled;
-		NeoForgeConfigManager.setBoolean("healthtags.enabled", enabled);
-	}
+		// Use proper matrix positioning
+		poseStack.translate(0, 0, 0.5);
 
-	public static boolean isEnabled() {
-		return enabled;
+		font.drawInBatch(text, -width / 2f, 0, 0xFFFFFF, false,
+				poseStack.last().pose(), buffer,
+				Font.DisplayMode.SEE_THROUGH, 0, packedLight);
+
+		poseStack.popPose();
 	}
 }
