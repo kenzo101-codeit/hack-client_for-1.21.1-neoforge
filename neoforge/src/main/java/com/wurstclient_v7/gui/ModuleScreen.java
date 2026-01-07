@@ -1,5 +1,6 @@
 package com.wurstclient_v7.gui;
 
+import java.util.Map;
 import com.wurstclient_v7.config.NeoForgeConfigManager;
 import com.wurstclient_v7.feature.*;
 import com.wurstclient_v7.input.KeybindManager;
@@ -47,7 +48,6 @@ public class ModuleScreen extends Screen {
         gfx.drawString(this.font, shMultText, x + 120 - 8 - this.font.width(shMultText), lineY, -3355444, false);
         String shBinding = (this.listeningAction != null && this.listeningAction.equals("speedhack_toggle")) ? "Press any key..." : KeybindManager.getLabel("speedhack_toggle");
         gfx.drawString(this.font, shBinding, x + 120 - 8 - this.font.width(shBinding), lineY, -86, false);
-        int lineY = y + 8 + 16;
 
         for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
             String modName = entry.getKey();

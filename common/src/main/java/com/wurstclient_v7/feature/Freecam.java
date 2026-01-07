@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -13,10 +14,11 @@ public final class Freecam {
 	private static boolean enabled = false;
 
 	public static void toggle() {
-		enabled = !enabled;
-	}
 
-	ConfigManager.setBoolean("freecam.enabled", enabled);
+		enabled = !enabled;
+		NeoForgeConfigManager.setBoolean("freecam.enabled", enabled);
+
+	}
 
 	public static boolean isEnabled() {
 		return enabled;
@@ -28,7 +30,7 @@ public final class Freecam {
 
 	private static final double SPEED = 0.5;
 
-	public static void toggle() {
+	public static void disable() {
 		Minecraft mc = Minecraft.getInstance();
 		Player player = mc.player;
 		if (player == null) return;

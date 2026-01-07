@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -18,6 +19,7 @@ public final class Tracers {
 
     public static void toggle() {
         enabled = !enabled;
+        NeoForgeConfigManager.setBoolean("tracers.enabled", enabled);
         System.out.println("Tracers: " + enabled);
     }
 

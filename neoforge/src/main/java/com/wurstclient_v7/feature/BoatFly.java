@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +19,7 @@ public final class BoatFly {
 
 	public static void toggle() {
 		enabled = !enabled;
-		ConfigManager.setBoolean("boatfly.enabled", enabled);
+		NeoForgeConfigManager.setBoolean("boatfly.enabled", enabled);
 	}
 
 	public static boolean isEnabled() {

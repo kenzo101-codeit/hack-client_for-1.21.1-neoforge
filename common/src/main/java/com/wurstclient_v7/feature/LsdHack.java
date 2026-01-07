@@ -1,10 +1,10 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 
-public final class LsdHack
-{
+public final class LsdHack {
 	private static final Minecraft MC = Minecraft.getInstance();
 	private static final ResourceLocation LSD_SHADER =
 			new ResourceLocation("wurst_client_on_neoforge", "post_effect/lsd.json");
@@ -13,9 +13,8 @@ public final class LsdHack
 
 	public static void toggle() {
 		enabled = !enabled;
+		NeoForgeConfigManager.setBoolean("lsd.enabled", enabled);
 	}
-
-	ConfigManager.setBoolean("lsd.enabled", enabled);
 
 	public static boolean isEnabled() {
 		return enabled;

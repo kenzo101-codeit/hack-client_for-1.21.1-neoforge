@@ -1,5 +1,9 @@
 package com.wurstclient_v7.mixin;
 
+import com.wurstclient_v7.feature.ModuleRegistry;
+import org.lwjgl.glfw.GLFW;
+import java.util.Map;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
@@ -67,13 +71,13 @@ public class InGameHudMixin {
                 "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus", "AirPlace", "BoatFly"
         };
 
-for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
-        if (entry.getValue().isEnabled()) {
-            guiGraphics.drawString(mc.font, "[+] " + entry.getKey(), x, y, color, true);
-            y += 10;
+        for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
+            if (entry.getValue().isEnabled()) {
+                guiGraphics.drawString(mc.font, "[+] " + entry.getKey(), x, y, color, true);
+                y += 10;
+            }
         }
     }
-
     private void drawKeyBox(GuiGraphics guiGraphics, Font font, long window,
                             String label, int key, int x, int y, boolean isMouse,
                             int pressedColor, int idleColor) {
