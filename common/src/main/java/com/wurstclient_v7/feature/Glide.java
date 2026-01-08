@@ -4,12 +4,8 @@ import com.wurstclient_v7.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public final class Glide {
 
 	private static boolean enabled = false;
@@ -26,7 +22,6 @@ public final class Glide {
 	// tweak this
 	private static final double FALL_SPEED = 0.08; // vanilla gravity ≈ 0.08
 
-	@SubscribeEvent
 	public static void onClientTick(net.neoforged.neoforge.client.event.ClientTickEvent.Post event) {
 		if (!enabled) return;
 

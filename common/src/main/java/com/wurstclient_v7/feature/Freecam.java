@@ -1,15 +1,10 @@
 package com.wurstclient_v7.feature;
 
 import com.wurstclient_v7.config.ConfigManager;
-import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-
-@EventBusSubscriber
 public final class Freecam {
 
 	private static boolean enabled = false;
@@ -48,8 +43,7 @@ public final class Freecam {
 		}
 	}
 
-	@SubscribeEvent
-	public static void onClientTick(net.neoforged.neoforge.client.event.ClientTickEvent.Post event) {
+	public static void onClientTick(net.neoforged.neoforge.client.event.ClientTickEvent.Post ClientTickEvent) {
 		if (!enabled) return;
 
 		Minecraft mc = Minecraft.getInstance();

@@ -41,8 +41,8 @@ public final class AirPlace {
 		mc.gameMode.useItemOn(mc.player, InteractionHand.MAIN_HAND, fakeHit);
 	}
 
-	public static void onRightClick(PlayerInteractEvent.RightClickItem event) {
-		if (!event.getLevel().isClientSide()) return;
+	public static void onRightClick(PlayerInteractEvent.RightClickItem PlayerInteractEvent) {
+		if (!PlayerInteractEvent.getLevel().isClientSide()) return;
 		AirPlace.onRightClick();
 	}
 }

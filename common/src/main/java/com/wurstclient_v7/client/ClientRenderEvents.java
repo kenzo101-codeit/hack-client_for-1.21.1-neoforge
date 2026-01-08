@@ -8,26 +8,21 @@ import net.minecraft.world.phys.Vec3;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.joml.Matrix4f;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.world.entity.player.Player;
 
-@EventBusSubscriber
 public final class ClientRenderEvents {
 
-	@SubscribeEvent
-	public static void onRenderLevel(RenderLevelStageEvent event) {
-		if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES)
+	public static void onRenderLevel(RenderLevelStageEvent Event) {
+		if (Event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES)
 			return;
 
 		Minecraft mc = Minecraft.getInstance();
 		if (mc.level == null || mc.player == null) return;
 
-		PoseStack poseStack = event.getPoseStack();
-		Vec3 camera = event.getCamera().getPosition();
+		PoseStack poseStack = Event.getPoseStack();
+		Vec3 camera = Event.getCamera().getPosition();
 
 		RenderSystem.disableDepthTest();
 		RenderSystem.enableBlend();

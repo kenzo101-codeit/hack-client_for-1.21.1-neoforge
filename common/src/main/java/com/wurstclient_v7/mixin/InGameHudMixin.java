@@ -1,5 +1,6 @@
 package com.wurstclient_v7.mixin;
 
+import com.wurstclient_v7.config.ConfigManager;
 import com.wurstclient_v7.feature.ModuleRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;

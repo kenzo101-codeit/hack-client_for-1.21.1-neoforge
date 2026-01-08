@@ -6,12 +6,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
-@EventBusSubscriber
 public final class JesusHack {
 
 	private static boolean enabled = false;
@@ -25,8 +21,7 @@ public final class JesusHack {
 		return enabled;
 	}
 
-	@SubscribeEvent
-	public static void onClientTick(ClientTickEvent.Post event) {
+	public static void onClientTick(ClientTickEvent.Post ClientTickEvent) {
 		if (!enabled) return;
 
 		Minecraft mc = Minecraft.getInstance();

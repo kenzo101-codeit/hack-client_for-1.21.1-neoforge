@@ -1,1 +1,2 @@
 v1	named	intermediary
+FIELD	com/wurstclient_v7/mixin/GameRendererMixin	Z	effectActive	field_4013

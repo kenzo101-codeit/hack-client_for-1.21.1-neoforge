@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
  * Think of it as a "contract" that says these methods exist on GameRenderer.
  */
 public interface GameRendererAccessor {
-	public void wurst$loadEffectPublic(ResourceLocation resourceLocation);
+	void wurst$loadEffectPublic(ResourceLocation resourceLocation);
 	boolean wurst$isEffectActive();
 	void wurst$disableEffect();
 }

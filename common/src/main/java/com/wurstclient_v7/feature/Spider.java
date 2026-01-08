@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
 

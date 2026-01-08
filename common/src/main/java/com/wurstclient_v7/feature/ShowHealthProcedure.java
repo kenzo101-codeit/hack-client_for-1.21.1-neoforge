@@ -1,19 +1,16 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.ConfigManager;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
-@EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public final class ShowHealthProcedure {
 
-	@SubscribeEvent
-	public static void onEntityTick(EntityTickEvent.Pre event) {
-		Entity entity = event.getEntity();
+	public static void onEntityTick(EntityTickEvent.Pre EntityEvent) {
+		Entity entity = EntityEvent.getEntity();
 		if (!(entity instanceof LivingEntity living)) return;
 
 		float health = living.getHealth();

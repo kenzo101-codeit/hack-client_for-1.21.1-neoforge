@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.mixin.GameRendererAccessor;
 import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -8,6 +9,7 @@ public final class LsdHack {
 	private static final Minecraft MC = Minecraft.getInstance();
 	private static final ResourceLocation LSD_SHADER =
 			ResourceLocation.fromNamespaceAndPath("wurst_client_on_neoforge", "post/lsd.json");
+	GameRendererAccessor accessor = (GameRendererAccessor) MC.gameRenderer;
 
 	private static boolean enabled = false;
 
@@ -23,6 +25,8 @@ public final class LsdHack {
 	public void enable() {
 		if (enabled)
 			return;
+		MC.execute(() -> {
+
 
 		if (MC.level == null || MC.player == null)
 			return;
@@ -30,17 +34,18 @@ public final class LsdHack {
 		if (MC.gameRenderer.currentEffect() != null)
 			MC.gameRenderer.shutdownEffect();
 
-		MC.gameRenderer.loadEffect(LSD_SHADER);
+		accessor.wurst$loadEffectPublic(LSD_SHADER);
 		enabled = true;
+		});
 	}
-
 	public void disable() {
 		if (!enabled)
 			return;
+		MC.execute(() -> {
+			if (MC.gameRenderer.currentEffect() != null)
+				MC.gameRenderer.shutdownEffect();
 
-		if (MC.gameRenderer.currentEffect() != null)
-			MC.gameRenderer.shutdownEffect();
-
-		enabled = false;
+			enabled = false;
+		});
 	}
 }
