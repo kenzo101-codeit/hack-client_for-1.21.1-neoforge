@@ -1,6 +1,5 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.feature.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -22,14 +21,12 @@ public final class ModuleRegistry {
 		MODULES.put("Tracers", Tracers::isEnabled);
 		MODULES.put("AndromedaBridge", AndromedaBridge::isEnabled);
 		MODULES.put("SafeWalk", SafeWalk::isEnabled);
-		MODULES.put("GodMode", GodMode::isEnabled);
 		MODULES.put("Freecam", Freecam::isEnabled);
 		MODULES.put("LSD", LsdHack::isEnabled);      // FIXED
 		MODULES.put("Jesus", JesusHack::isEnabled);  // FIXED
 		MODULES.put("Glide", Glide::isEnabled);
 		MODULES.put("AirPlace", AirPlace::isEnabled);
 		MODULES.put("BoatFly", BoatFly::isEnabled);
-		MODULES.put("HealthTags", HealthTags::isEnabled);
 	}
 
 	public interface ModuleToggle {

@@ -37,8 +37,15 @@ architectury {
     }
 
     dependencies {
-        minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
+        minecraft "com.mojang:minecraft:1.21.1"
         mappings loom.officialMojangMappings()
+
+        compileOnly("net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7")
+        annotationProcessor("net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7")
+
+        // These should be provided by NeoForge already
+        compileOnly "org.joml:joml:1.10.5"
+        compileOnly "org.lwjgl:lwjgl:3.3.1"
     }
 
     java {

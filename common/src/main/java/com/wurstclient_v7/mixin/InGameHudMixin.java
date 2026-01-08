@@ -1,13 +1,20 @@
 package com.wurstclient_v7.mixin;
 
+import com.wurstclient_v7.feature.ModuleRegistry;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.DeltaTracker;
+import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Map;
+
+import static org.lwjgl.glfw.GLFW.*;
 
 @Mixin(value = Gui.class, remap = false)
 public class InGameHudMixin {
@@ -37,28 +44,28 @@ public class InGameHudMixin {
         int spacing = 5;
 
 // W on top
-        drawKeyBox(guiGraphics, mc.font, window, "W", GLFW.GLFW_KEY_W,
+        drawKeyBox(guiGraphics, mc.font, window, "W", GLFW_KEY_W,
                 baseX + boxW + spacing, baseY, false, pressedColor, idleColor);
 
 // A S D row
-        drawKeyBox(guiGraphics, mc.font, window, "A", GLFW.GLFW_KEY_A,
+        drawKeyBox(guiGraphics, mc.font, window, "A", GLFW_KEY_A,
                 baseX, baseY + boxH + spacing, false, pressedColor, idleColor);
 
-        drawKeyBox(guiGraphics, mc.font, window, "S", GLFW.GLFW_KEY_S,
+        drawKeyBox(guiGraphics, mc.font, window, "S", GLFW_KEY_S,
                 baseX + boxW + spacing, baseY + boxH + spacing, false, pressedColor, idleColor);
 
-        drawKeyBox(guiGraphics, mc.font, window, "D", GLFW.GLFW_KEY_D,
+        drawKeyBox(guiGraphics, mc.font, window, "D", GLFW_KEY_D,
                 baseX + (boxW + spacing) * 2, baseY + boxH + spacing, false, pressedColor, idleColor);
 
 // SPACE below
-        drawKeyBox(guiGraphics, mc.font, window, "SPACE", GLFW.GLFW_KEY_SPACE,
+        drawKeyBox(guiGraphics, mc.font, window, "SPACE", GLFW_KEY_SPACE,
                 baseX, baseY + (boxH + spacing) * 2, false, pressedColor, idleColor);
 
         //MOUSE BUTTONS
-        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_L", GLFW.GLFW_MOUSE_BUTTON_LEFT,
+        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_L", GLFW_MOUSE_BUTTON_LEFT,
                 baseX + (boxW + spacing) * 3, baseY, true, pressedColor, idleColor);
 
-        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_R", GLFW.GLFW_MOUSE_BUTTON_RIGHT,
+        drawKeyBox(guiGraphics, mc.font, window, "MOUSE_R", GLFW_MOUSE_BUTTON_RIGHT,
                 baseX + (boxW + spacing) * 3, baseY + boxH + spacing, true, pressedColor, idleColor);
 
         String[] modules = {
@@ -66,7 +73,6 @@ public class InGameHudMixin {
                 "FullBright", "Jetpack", "KillAura",
                 "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus", "AirPlace", "BoatFly"
         };
-
         for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {
             if (entry.getValue().isEnabled()) {
                 guiGraphics.drawString(mc.font, "[+] " + entry.getKey(), x, y, color, true);
@@ -79,9 +85,9 @@ public class InGameHudMixin {
                             int pressedColor, int idleColor) {
         boolean pressed;
         if (isMouse) {
-            pressed = GLFW.glfwGetMouseButton(window, key) == GLFW.GLFW_PRESS;
+            pressed = glfwGetMouseButton(window, key) == GLFW_PRESS;
         } else {
-            pressed = GLFW.glfwGetKey(window, key) == GLFW.GLFW_PRESS;
+            pressed = glfwGetKey(window, key) == GLFW_PRESS;
         }
 
         int boxColor = pressed ? pressedColor : idleColor;

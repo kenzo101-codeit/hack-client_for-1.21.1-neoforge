@@ -1,6 +1,6 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.config.NeoForgeConfigManager;
+import com.wurstclient_v7.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -9,14 +9,14 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@EventBusSubscriber(modid = "wurst_client_om_neoforge")
+@EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public final class Glide {
 
 	private static boolean enabled = false;
 
 	public static void toggle() {
 		enabled = !enabled;
-		NeoForgeConfigManager.setBoolean("glide.enabled", enabled);
+		ConfigManager.setBoolean("glide.enabled", enabled);
 	}
 
 	public static boolean isEnabled() {

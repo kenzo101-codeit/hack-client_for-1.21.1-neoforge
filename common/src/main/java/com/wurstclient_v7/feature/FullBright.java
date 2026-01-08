@@ -6,11 +6,11 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
 public final class FullBright {
-    private static boolean enabled = ConfigManager.getBoolean("fullbright.enabled", false);
 
-    private FullBright() { }
-
-    public static boolean isEnabled() { return enabled; }
+    private static boolean enabled = false;
+    public static boolean isEnabled() {
+        return enabled;
+    }
 
     public static void toggle() {
         enabled = !enabled;
@@ -26,6 +26,7 @@ public final class FullBright {
     }
 
     public static void onClientTick() {
+
         if (!enabled) return;
 
         Minecraft mc = Minecraft.getInstance();

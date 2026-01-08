@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
@@ -17,9 +18,8 @@ public final class JesusHack {
 
 	public static void toggle() {
 		enabled = !enabled;
+		ConfigManager.setBoolean("jesus.enabled", enabled);
 	}
-
-	ConfigManager.setBoolean("jesus.enabled", enabled);
 
 	public static boolean isEnabled() {
 		return enabled;

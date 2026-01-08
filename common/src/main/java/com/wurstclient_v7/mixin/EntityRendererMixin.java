@@ -1,36 +1,45 @@
 package com.wurstclient_v7.mixin;
 
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(EntityRenderer.class)
-public abstract class EntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> {
+@Mixin(net.minecraft.client.renderer.entity.EntityRenderer.class) // Fully qualified target class
+public abstract class EntityRendererMixin<T extends LivingEntity> {
 
 	@Inject(
-			method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
+			method = "render",
 			at = @At("TAIL")
 	)
-	private void addHealthTag(LivingEntity entity, float yaw, float partialTicks,
-	                          PoseStack poseStack, MultiBufferSource buffer, int packedLight,
-	                          CallbackInfo ci) {
-		if (!(entity instanceof LivingEntity living))
-			return;
+	private void onRender(T entity, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci) {
+		if (!(entity instanceof LivingEntity livingEntity)) return;
+		if (!com.wurstclient_v7.HealthTagsMain.isEnabled()) return;
 
-		// Use your helper class
-		Component newComponent = HealthTagsHack.addHealth(living, component);
+		float health = livingEntity.getHealth();
+		float max = livingEntity.getMaxHealth();
+		String text = String.format("%.1f / %.1f", health, max);
 
-		((EntityRenderer<T>) (Object) this).renderNameTag(entity, newComponent,
-				poseStack, buffer, packedLight, partialTicks);
+		poseStack.pushPose();
+		poseStack.translate(0.0, livingEntity.getBbHeight() + 0.5, 0.0);
+		poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
+		poseStack.scale(-0.025f, -0.025f, 0.025f);
 
-		ci.cancel();
+		Font font = Minecraft.getInstance().font;
+		int width = font.width(text);
+
+		poseStack.translate(0, 0, 0.5);
+		font.drawInBatch(text, -width / 2f, 0, 0xFFFFFF, false,
+				poseStack.last().pose(), buffer,
+				Font.DisplayMode.SEE_THROUGH, 0, i);
+
+		poseStack.popPose();
 	}
 }

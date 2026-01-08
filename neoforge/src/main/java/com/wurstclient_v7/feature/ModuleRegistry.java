@@ -1,6 +1,6 @@
 package com.wurstclient_v7.feature;
 
-import com.wurstclient_v7.feature.*;
+import com.wurstclient_v7.feature.HealthTagsMain;
 import com.wurstclient_v7.config.NeoForgeConfigManager;
 
 import java.util.LinkedHashMap;

@@ -10,7 +10,7 @@ mkdir -p dist
 
 # Build NeoForge jar
 ./gradlew :neoforge:clean
-./gradlew :neoforge:remapJar
+./gradlew :neoforge:remapJar --scan
 
 # Find the remapped jar automatically
 JAR=$(ls neoforge/build/libs/*.jar | grep -v "sources\|javadoc" | head -n 1)

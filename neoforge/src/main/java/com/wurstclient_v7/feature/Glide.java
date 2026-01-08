@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@EventBusSubscriber(modid = "wurst_client_om_neoforge")
+@EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public final class Glide {
 
 	private static boolean enabled = false;

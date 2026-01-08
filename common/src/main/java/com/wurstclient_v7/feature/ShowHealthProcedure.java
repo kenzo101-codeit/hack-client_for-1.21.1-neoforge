@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = "wurst_client_on_neoforge")
-public class ShowHealthProcedure {
+public final class ShowHealthProcedure {
 
 	@SubscribeEvent
 	public static void onEntityTick(EntityTickEvent.Pre event) {

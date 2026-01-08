@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 import net.minecraft.client.Minecraft;
 
-public final class NeoForgeConfigManager {
+public final class ConfigManager {
     // Standard Minecraft config directory
     private static final File CONFIG_DIR = new File(Minecraft.getInstance().gameDirectory, "config");
     private static final File CONFIG_FILE = new File(CONFIG_DIR, "hack-client-config.properties");
@@ -39,8 +39,6 @@ public final class NeoForgeConfigManager {
 
         PROPS.setProperty("speed.multiplier", "1.5"); load();
     }
-
-    private NeoForgeConfigManager() { }
 
     public static void load() {
         if (!CONFIG_FILE.exists()) return;

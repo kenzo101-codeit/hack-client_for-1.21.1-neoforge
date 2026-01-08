@@ -1,5 +1,6 @@
 package com.wurstclient_v7.feature;
 
+import com.wurstclient_v7.config.ConfigManager;
 import com.wurstclient_v7.config.NeoForgeConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +16,7 @@ public final class Freecam {
 
 	public static void toggle() {
 		enabled = !enabled;
-		NeoForgeConfigManager.setBoolean("freecam.enabled", enabled);
+		ConfigManager.setBoolean("freecam.enabled", enabled);
 	}
 
 	public static boolean isEnabled() {

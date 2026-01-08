@@ -1,10 +1,9 @@
-
 package com.wurstclient_v7.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,36 +12,34 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntityRenderer.class)
-public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> {
+@Mixin(net.minecraft.client.renderer.entity.EntityRenderer.class) // Fully qualified target class
+public abstract class EntityRendererMixin<T extends LivingEntity> {
 
-	// Alternative: Try without the full signature, let Mixin figure it out
 	@Inject(
-			method = "render", // Just the name, no descriptor
+			method = "m_7392_",
 			at = @At("TAIL")
 	)
-	private void onRender(T entity, float yaw, float partialTicks, PoseStack poseStack,
-	                      MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+	private void onRender(T entity, float f, float g, PoseStack poseStack,
+	                      MultiBufferSource buffer, int i, CallbackInfo ci) {
+		if (!(entity instanceof LivingEntity livingEntity)) return;
 		if (!com.wurstclient_v7.HealthTagsMain.isEnabled()) return;
 
-		float health = entity.getHealth();
-		float max = entity.getMaxHealth();
+		float health = livingEntity.getHealth();
+		float max = livingEntity.getMaxHealth();
 		String text = String.format("%.1f / %.1f", health, max);
 
 		poseStack.pushPose();
-		poseStack.translate(0.0, entity.getBbHeight() + 0.5, 0.0);
+		poseStack.translate(0.0, livingEntity.getBbHeight() + 0.5, 0.0);
 		poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
 		poseStack.scale(-0.025f, -0.025f, 0.025f);
 
 		Font font = Minecraft.getInstance().font;
 		int width = font.width(text);
 
-		// Use proper matrix positioning
 		poseStack.translate(0, 0, 0.5);
-
 		font.drawInBatch(text, -width / 2f, 0, 0xFFFFFF, false,
 				poseStack.last().pose(), buffer,
-				Font.DisplayMode.SEE_THROUGH, 0, packedLight);
+				Font.DisplayMode.SEE_THROUGH, 0, i);
 
 		poseStack.popPose();
 	}

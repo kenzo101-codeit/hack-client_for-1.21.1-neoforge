@@ -49,6 +49,7 @@ dependencies {
     // These should be provided by NeoForge already
     compileOnly "org.joml:joml:1.10.5"
     compileOnly "org.lwjgl:lwjgl:3.3.1"
+    implementation(project(":common"))
 }
 
 java {
@@ -63,7 +64,12 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(JavaCompile).configureEach {
     options.fork = true
-    options.forkOptions.jvmArgs += "-Dmixin.env.disableRefMap=true"
+    options.forkOptions.jvmArgs += [
+            "-Dmixin.env.disableRefMap=true",
+            "-Dmixin.debug.verbose=true",
+            "-Dmixin.debug.export=true",
+            "-Dmixin.env.export=true"
+    ]
 }
 
 // Configure Maven publishing.
