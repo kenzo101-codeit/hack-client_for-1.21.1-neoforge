@@ -1,14 +1,17 @@
 [Architectury Transformer] Architectury Runtime 5.2.87
-[Architectury Transformer DEBUG] Closed File Systems for /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar
 [Architectury Transformer DEBUG] Preparing tiny remapper prepared transformer: dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Provided 92 classpath jar(s):
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/1.21.1/neoforge/21.1.215/client-extra.jar
+[Architectury Transformer DEBUG] Provided 93 classpath jar(s):
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/1.21.1/neoforge/21.1.217/client-extra.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/dev.architectury/architectury-injectables/1.0.10/62db2a366d662606d1b23ad02ccc3212ed37ec3/architectury-injectables-1.0.10.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.3/234f25229c51fdd8c0f3a72af0dbcf1ecf2f45d1/fabric-loader-0.18.3.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/26.0.2/c7ce3cdeda3d18909368dfe5977332dfad326c6d/annotations-26.0.2.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.0+mixin.0.8.7/cf31463202f72d03b0ef1e1e38e8ee71b7faaab6/sponge-mixin-0.17.0+mixin.0.8.7.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.neoforged.fancymodloader/earlydisplay/4.0.42/46555dbfff14e9e052f1f693aed14d542a74e111/earlydisplay-4.0.42.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/fancymodloader/6cbb9cd9c530e9af67296fb0ed0977505971251c4adf3f7f9e5414bc02a2226f/loader/4.0.42/loader-4.0.42.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/net/neoforged/fancymodloader/34573bf07d4e228ed25960c245aac6ebdc774142494334561a0d25ae7e8fae3d/loader/4.0.42/loader-4.0.42.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.neoforged.accesstransformers/at-modlauncher/10.0.1/5aba50202aceead086bc09fbc2751c9f05cb4890/at-modlauncher-10.0.1.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.neoforged/accesstransformers/10.0.1/fd83b5725f76eae9115e9355fa1c456a6a441400/accesstransformers-10.0.1.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.neoforged/bus/8.0.5/5b2d33285ab5d1554e9798ad98c40d6ea3868bd5/bus-8.0.5.jar
@@ -22,7 +25,6 @@
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.8.5/4433f50c07debefaed0553bd0068f4f48d449313/maven-artifact-3.8.5.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.jodah/typetools/0.6.3/a01aaa6ddaea9ec07ec4f209487b7a46a526283a/typetools-0.6.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.minecrell/terminalconsoleappender/1.3.0/b562e9bb61235c9520e26282cdee71f8f802d1fc/terminalconsoleappender-1.3.0.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.openjdk.nashorn/nashorn-core/15.4/f67f5ffaa5f5130cf6fb9b133da00c7df3b532a5/nashorn-core-15.4.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/cpw.mods/bootstraplauncher/2.0.2/1a2d076cbc33b0520cbacd591224427b2a20047d/bootstraplauncher-2.0.2.jar
@@ -48,7 +50,6 @@
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.jline/jline-terminal/3.20.0/d0ddcc708ddf527a3454c941b7b9225cc83a15ff/jline-terminal-3.20.0.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/net.minecraftforge/srgutils/0.4.15/ca408b131759478f164e010fae0d73997e125fb5/srgutils-0.4.15.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar
@@ -60,7 +61,7 @@
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/2f6b0147078396a58979125a4c947664e98293a/lwjgl-opengl-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/25dd6161988d7e65f71d5065c99902402ee32746/lwjgl-stb-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/82d755ca94b102e9ca77283b9e2dc46d1b15fbe5/lwjgl-tinyfd-3.3.3.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar
+[Architectury Transformer DEBUG]  - /home/kenzo101/IdeaProjects/hack_client-for_neoforge-by_kenzo101_studios/common/build/libs/wurst_client_on_neoforge-common-1.0.0.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.ibm.icu/icu4j/73.2/61ad4ef7f9131fcf6d25c34b817f90d6da06c9e9/icu4j-73.2.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar
@@ -88,41 +89,11 @@
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/51cf043c87253c9f58b539c9f7e44c8894223850/httpcore-4.4.16.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/a0db6c84a8becc8ca05f9dbfa985edc348a824c7/lwjgl-freetype-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/b543467b7ff3c6920539a88ee602d34098628be5/lwjgl-jemalloc-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/daada81ceb5fc0c291fbfdd4433cb8d9423577f2/lwjgl-openal-3.3.3.jar
 [Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar
-[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/neoforge-21.1.215-minecraft-merged/1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2-neoforge-21.1.215/neoforge-21.1.215-minecraft-merged-1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2-neoforge-21.1.215.jar
-[Architectury Transformer] Read classpath in 14.11 s
-[Architectury Transformer DEBUG] Closed File Systems for /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Transforming 6 transformer(s) from /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar to /tmp/2221165983025853916.jar: 
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@67b467e9
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@47db50c5
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@5c072e3f
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformNeoForgeAnnotations@4d1b0d2a
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformNeoForgeEnvironment@954b04f
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeNeoForgeMod@149494d8
-[Architectury Transformer DEBUG] Transforming from /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar to /tmp/2221165983025853916.jar with 6 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
-[Architectury Transformer DEBUG] Remapping with 1 mapping provider(s):
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformNeoForgeEnvironment$$Lambda/0x00007946f402f630@df27fae
-[Architectury Transformer DEBUG] Remapping Classes:
-[Architectury Transformer DEBUG] net/fabricmc/api/EnvType -> net/neoforged/api/distmarker/Dist
-[Architectury Transformer DEBUG] net/fabricmc/api/Environment -> net/neoforged/api/distmarker/OnlyIn
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/ExampleMod with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/MobVision with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/FullBright with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/FeatureManager$Listener with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/AutoAttack with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/FeatureManager with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/KillAura with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/feature/SpeedHack with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/mixin/InGameHudMixin with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing com/wurstclient_v7/config/ConfigManager with maxs=true frames=true
-[Architectury Transformer DEBUG] Closed File Systems for /tmp/2221165983025853916.jar
-[Architectury Transformer] Listening at /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Temporary jar [/tmp/2221165983025853916.jar] contains packages: com.wurstclient_v7.mixin, com.wurstclient_v7.feature, com.wurstclient_v7.config, com.wurstclient_v7
-[Architectury Transformer DEBUG] Closed File Systems for /home/kenzo101/Downloads/Hack Client 1.21.1/common/build/devlibs/hack_client_on_neoforge-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Classpath entry [/home/kenzo101/Downloads/Hack Client 1.21.1/neoforge/build/classes/java/main] contains packages: com.wurstclient_v7.mixin, com.wurstclient_v7.input, com.wurstclient_v7.config, com.wurstclient_v7.gui, com.wurstclient_v7.neoforge
-[Architectury Transformer DEBUG] Classpath entry [/home/kenzo101/Downloads/Hack Client 1.21.1/neoforge/build/resources/main] contains packages: 
+[Architectury Transformer DEBUG]  - /home/kenzo101/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/neoforge-21.1.217-minecraft-merged/1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2-neoforge-21.1.217/neoforge-21.1.217-minecraft-merged-1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2-neoforge-21.1.217.jar
+[Architectury Transformer] Read classpath in 7.306 s
+[Architectury Transformer DEBUG] Classpath entry [/home/kenzo101/IdeaProjects/hack_client-for_neoforge-by_kenzo101_studios/neoforge/build/classes/java/main] contains packages: com.wurstclient_v7.mixin, com.wurstclient_v7.input, com.wurstclient_v7.feature, com.wurstclient_v7.config, com.wurstclient_v7.client, com.wurstclient_v7.net, com.wurstclient_v7.server, com.wurstclient_v7.gui
+[Architectury Transformer DEBUG] Classpath entry [/home/kenzo101/IdeaProjects/hack_client-for_neoforge-by_kenzo101_studios/neoforge/build/resources/main] contains packages: 
