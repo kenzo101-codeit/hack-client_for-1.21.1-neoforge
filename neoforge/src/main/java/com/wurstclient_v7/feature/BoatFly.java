@@ -8,14 +8,8 @@ import net.minecraft.world.phys.Vec3;
 
 public final class BoatFly {
 
+	// === Public API for Click GUI ===
 	private static boolean enabled = false;
-
-	// --- CONFIG VALUES (replace later with sliders) ---
-	private static final double UPWARD_SPEED = 0.3;
-	private static final double FORWARD_SPEED = 1.2;
-	private static final boolean CHANGE_FORWARD_SPEED = true;
-
-	// --------------------------------------------------
 
 	public static void toggle() {
 		enabled = !enabled;
@@ -25,6 +19,13 @@ public final class BoatFly {
 	public static boolean isEnabled() {
 		return enabled;
 	}
+
+	// --- CONFIG VALUES (replace later with sliders) ---
+	private static final double UPWARD_SPEED = 0.3;
+	private static final double FORWARD_SPEED = 1.2;
+	private static final boolean CHANGE_FORWARD_SPEED = true;
+
+	// --------------------------------------------------
 
 	// Call this from ClientTickEvent
 	public static void onUpdate() {

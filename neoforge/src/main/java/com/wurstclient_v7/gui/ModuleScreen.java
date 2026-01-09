@@ -160,9 +160,10 @@ public class ModuleScreen extends Screen {
             case "esp": ESP.toggle(); break;
             case "tracers": Tracers.toggle(); break;
             case "andromeda": AndromedaBridge.toggle(); break;
-            case "safewalk": com.wurstclient_v7.feature.SafeWalk.toggle(); break;
+            case "safewalk": SafeWalk.toggle(); break;
             case "godmode": GodMode.toggle(); break;
             case "lsd": LsdHack.toggle(); break;
+            case "healthtags": HealthTagsMain.toggle(); break;
         }
     }
 }

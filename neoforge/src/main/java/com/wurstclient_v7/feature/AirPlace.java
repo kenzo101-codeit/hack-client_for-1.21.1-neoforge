@@ -16,8 +16,10 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @EventBusSubscriber(modid = "wurst_client_on_neoforge")
 public final class AirPlace {
 
-	private static boolean enabled = false;
 	private static double RANGE = 5.0;
+
+	// === Public API for Click GUI ===
+	private static boolean enabled = false;
 
 	public static void toggle() {
 		enabled = !enabled;

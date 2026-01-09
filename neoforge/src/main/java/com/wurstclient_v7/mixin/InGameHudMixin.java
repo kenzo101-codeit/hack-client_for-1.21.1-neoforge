@@ -68,7 +68,7 @@ public class InGameHudMixin {
         String[] modules = {
                 "AndromedaBridge", "AutoAttack", "ESP", "Flight",
                 "FullBright", "Jetpack", "KillAura",
-                "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus", "AirPlace", "BoatFly"
+                "NoFall", "Nuker", "SpeedHack", "Spider", "Tracers", "XRay", "SafeWalk", "GodMode", "Glide", "Freecam", "LSD", "Jesus", "AirPlace", "BoatFly", "HealthTags"
         };
 
         for (Map.Entry<String, ModuleRegistry.ModuleToggle> entry : ModuleRegistry.MODULES.entrySet()) {

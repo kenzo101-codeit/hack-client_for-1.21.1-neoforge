@@ -12,11 +12,11 @@ import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
 public final class AndromedaBridge {
-    private static boolean enabled = NeoForgeConfigManager.getBoolean("andromeda.enabled", false);
     private static float startYaw;
     private static float startPitch;
 
-    public static boolean isEnabled() { return enabled; }
+    // === Public API for Click GUI ===
+    private static boolean enabled = false;
 
     public static void toggle() {
         enabled = !enabled;
@@ -30,6 +30,11 @@ public final class AndromedaBridge {
         } else {
             stopInput(mc);
         }
+
+    }
+
+    public static boolean isEnabled() {
+        return enabled;
     }
 
     public static void onClientTick() {
