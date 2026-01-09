@@ -22,11 +22,7 @@ public final class ModuleRegistry {
 		MODULES.put("Tracers", Tracers::isEnabled);
 		MODULES.put("AndromedaBridge", AndromedaBridge::isEnabled);
 		MODULES.put("SafeWalk", SafeWalk::isEnabled);
-		MODULES.put("Freecam", Freecam::isEnabled);
 		MODULES.put("LSD", LsdHack::isEnabled);      // FIXED
-		MODULES.put("Jesus", JesusHack::isEnabled);  // FIXED
-		MODULES.put("Glide", Glide::isEnabled);
-		MODULES.put("AirPlace", AirPlace::isEnabled);
 		MODULES.put("BoatFly", BoatFly::isEnabled);
 	}
 

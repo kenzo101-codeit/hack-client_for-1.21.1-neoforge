@@ -1,28 +1,28 @@
 package com.wurstclient_v7.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.Entity; // Import this!
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(net.minecraft.client.renderer.entity.EntityRenderer.class) // Fully qualified target class
-public abstract class EntityRendererMixin<T extends LivingEntity> {
+// 1. Change T extends LivingEntity -> T extends Entity
+@Mixin(EntityRenderer.class)
+public abstract class EntityRendererMixin<T extends Entity> {
 
-	@Inject(
-			method = "m_7392_",
-			at = @At("TAIL")
-	)
-	private void onRender(T entity, float f, float g, PoseStack poseStack,
-	                      MultiBufferSource buffer, int i, CallbackInfo ci) {
+	@Inject(method = "render", at = @At("TAIL"), remap = false)
+	private void onRender(T entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+
+		// 2. Now we cast it to LivingEntity here safely
 		if (!(entity instanceof LivingEntity livingEntity)) return;
-		if (!com.wurstclient_v7.HealthTagsMain.isEnabled()) return;
+
+		if (!com.wurstclient_v7.feature.HealthTagsMain.isEnabled()) return;
 
 		float health = livingEntity.getHealth();
 		float max = livingEntity.getMaxHealth();
@@ -37,9 +37,10 @@ public abstract class EntityRendererMixin<T extends LivingEntity> {
 		int width = font.width(text);
 
 		poseStack.translate(0, 0, 0.5);
+
 		font.drawInBatch(text, -width / 2f, 0, 0xFFFFFF, false,
 				poseStack.last().pose(), buffer,
-				Font.DisplayMode.SEE_THROUGH, 0, i);
+				Font.DisplayMode.SEE_THROUGH, 0, packedLight);
 
 		poseStack.popPose();
 	}

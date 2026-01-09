@@ -1,4 +1,4 @@
-package com.wurstclient_v7;
+package com.wurstclient_v7.feature;
 
 import com.wurstclient_v7.config.NeoForgeConfigManager;
 import com.wurstclient_v7.client.HealthTagClientCache;
